@@ -45,15 +45,15 @@ window.renderStatistics = function (ctx, names, times) {
 
   var maxTime = getMaxElement(times);
 
-  var getSelectColor = function () {
+  var getSelectColor = function (name) {
     var randOpacity = Math.random().toFixed(2);
     var colorBar = 'rgba(0, 0, 255, ' + randOpacity + ')';
-    return (names[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : colorBar;
+    return (name === 'Вы') ? 'rgba(255, 0, 0, 1)' : colorBar;
   };
 
   for (var i = 0; i < names.length; i++) {
     renderText(ctx, names[i], (CLOUD_X * i) + GAP_BAR + barWidth, CLOUD_HEIGHT, '#000');
     renderText(ctx, Math.round(times[i]), (CLOUD_X * i) + GAP_BAR + barWidth, CLOUD_Y + CLOUD_Y + (GAP_BAR - GAP_SHADOW - GAP_SHADOW) + (barHeight - ((barHeight * times[i]) / maxTime)), '#000');
-    renderBar(ctx, (CLOUD_X * i) + GAP_BAR + barWidth, CLOUD_Y + GAP_BAR + (barHeight - ((barHeight * times[i]) / maxTime)), barWidth, (barHeight * times[i]) / maxTime, getSelectColor());
+    renderBar(ctx, (CLOUD_X * i) + GAP_BAR + barWidth, CLOUD_Y + GAP_BAR + (barHeight - ((barHeight * times[i]) / maxTime)), barWidth, (barHeight * times[i]) / maxTime, getSelectColor(names[i]));
   }
 };
