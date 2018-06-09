@@ -10,18 +10,18 @@ var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 var QUANTITY_WIZARDS = 4;
 
-var getRandomValue = function (array) {
-  var rand = Math.floor(Math.random() * array.length);
-  return array[rand];
-};
-
 var getRandomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+var getRandomValue = function (array) {
+  var rand = getRandomInt(0, array.length - 1);
+  return array[rand];
+};
+
 var fullName = function (firstName, lastName) {
-  var name = getRandomValue(firstName).concat(' ').concat(getRandomValue(lastName));
-  var nameReverse = getRandomValue(lastName).concat(' ').concat(getRandomValue(firstName));
+  var name = getRandomValue(firstName) + ' ' + getRandomValue(lastName);
+  var nameReverse = getRandomValue(lastName) + ' ' + getRandomValue(firstName);
   return (getRandomInt(0, 1)) ? name : nameReverse;
 };
 
