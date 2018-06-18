@@ -102,7 +102,7 @@ var wizardFireball = document.querySelector('.setup-fireball-wrap');
 var coatColorInput = document.querySelector('input[name="coat-color"]');
 var eyesColorInput = document.querySelector('input[name="eyes-color"]');
 var fireballColorInput = document.querySelector('input[name="fireball-color"]');
-var fireballColor = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 // Изменение цвета мантии персонажа по нажатию.
 wizardCoat.addEventListener('click', function () {
@@ -118,8 +118,9 @@ wizardEyes.addEventListener('click', function () {
 
 // Изменение цвета фаерболов по нажатию.
 wizardFireball.addEventListener('click', function () {
-  wizardFireball.style.background = getRandomValue(fireballColor);
-  fireballColorInput.value = wizardFireball.style.background;
+  var color = getRandomValue(fireballColors);
+  wizardFireball.style.background = color;
+  fireballColorInput.value = color;
 });
 
 // Валидация ввода имени персонажа
